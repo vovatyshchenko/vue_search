@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <ul>
+            <li v-for="(arr, id) in flist" :key="id"><strong>name: </strong>{{ arr.name }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                array: [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+  }
+]
+},
+computed: {
+    flist: function(){
+        var name = this.name;
+        return this.array.filter(function (el) {
+            if(name==='') return true;
+        else return el.name.toLowerCase().indexOf(name) >= 0;
+        })  
+        }   
+}
+})
+    </script>
+</body>
+</html> 
